@@ -1,0 +1,57 @@
+:root {
+  --text-color: #111111;
+  --page-width: 75vw;
+  --menu-color:#ABB2B9; }
+
+#root,
+#root > div,
+body,
+html {
+  height: 100%; }
+
+a {
+  text-decoration: none;
+  border: none;
+  color: var(--text-color); }
+
+.App {
+  max-width: var(--page-width);
+  margin: 0 auto; }
+
+.Header {
+  padding: 2rem 0;
+  display: flex; }
+
+.Menu {
+  flex-basis: 80%; }
+  .Menu ul {
+    text-align: right;
+    list-style: none; }
+    .Menu ul li {
+      display: inline-block;
+      margin-left: 2rem; }
+    .Menu ul a {
+      color: var(--menu-color);
+      transition: color .3s ease; }
+      .Menu ul a:hover, .Menu ul a.active {
+        --menu-color: var(--text-color); }
+
+.Logo {
+  display: block;
+  flex-basis: 20%; }
+  .Logo img {
+    width: 4rem;
+    height: 4rem;
+    transition: transform .3s ease;
+    transform-origin: 50% 50%; }
+  .Logo:hover img {
+    transform: scale(1.1); }
+
+@media only screen and (max-width: 640px) {
+  .App {
+    --page-width:90vw; }
+  .Menu ul {
+    margin: 0; }
+    .Menu ul li {
+      display: block;
+      margin-bottom: .3rem; } }
