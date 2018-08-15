@@ -1,14 +1,53 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
+import Star from './Star';
 
 class Stars extends Component {
-    render(){
+  constructor(props){
+    super(props);
+    this.state = {
+      universes: [],
+      stars: []
+    };
+  }
+  componentWillMount(){
+    this.setState({
+      universes: this.props.route.universeData,
+      stars: this.props.route.starData
+    });
+  }
+
+  render(){
+      // Get data from route props
+      const universes = this.state.universes;
+      const stars = this.state.stars;
+      // Map through cars and return linked cars
+
+      const starNode = stars.map((star) => {
+        let universeOfStar={};
+        universes.map((universe)=>{
+          if(star.universeId === universe.id){
+          universeOfStar.name = universe.name;
+        }
+        })
+
+          return (
+              <Star
+                  color={star.color}
+                  key={star.id}
+                  name={star.name}
+                  universe={universeOfStar.name}
+              />
+          )
+      });
       return (
           <div>
-              <h1>Stars page</h1>
+              <h1>Stars</h1>
+            <div className="Stars">
+                  {starNode}
+              </div>
           </div>
       );
-    }
+  }
 }
 
 export default Stars;

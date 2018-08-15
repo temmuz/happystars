@@ -10,9 +10,6 @@ class Menu extends Component {
           <li><Link to="/stars" activeClassName="active">Stars</Link></li>
           <li><Link to="/imprint" activeClassName="active">Imprint</Link></li>
         </ul>
-        <div className="container">
-            {this.props.children}
-        </div>
       </div>
     )
   }

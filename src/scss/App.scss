@@ -1,4 +1,5 @@
 @import 'variables.scss';
+
 #root,
 #root > div,
 body,
@@ -20,8 +21,8 @@ a {
 .Header {
   padding: 2rem 0;
   display: flex;
-
 }
+
 .Menu {
   flex-basis: 80%;
 
@@ -33,10 +34,13 @@ a {
       display: inline-block;
       margin-left: 2rem;
     }
-    a{
+
+    a {
       color: var(--menu-color);
-      transition: color .3s ease;
-      &:hover, &.active{
+      transition: color 0.3s ease;
+
+      &.active,
+      &:hover {
         --menu-color: var(--text-color);
       }
     }
@@ -50,15 +54,116 @@ a {
   img {
     width: 4rem;
     height: 4rem;
-    transition: transform .3s ease;
+    transition: transform 0.3s ease;
     transform-origin: 50% 50%;
   }
-  &:hover{
-    img{
-          transform: scale(1.1);
-    }
 
+  &:hover {
+    img {
+      transform: scale(1.1);
+    }
   }
 }
 
+.Universes {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.Universe {
+  background-color: var(--universe-bg);
+  margin: 0.5rem;
+  display: inline-block;
+  flex-grow: 1;
+  flex-shrink: 1;
+  min-width: 10rem;
+  min-height: 8rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  --text-color: white;
+
+  h4 {
+    margin: 0;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--universe-bg-light);
+  }
+
+  .percentage {
+    height: 1rem;
+    display: block;
+    position: relative;
+    width: 100%;
+    border-radius: 2rem;
+    background-color: var(--universe-bg-dark);
+    overflow: hidden;
+  }
+
+  .value {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background-color: #ffc772;
+  }
+
+  .universe-info {
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    --text-color: var(--universe-bg-light);
+    color: var(--text-color);
+
+    span {
+      display: block;
+
+      &:last-of-type {
+        margin-top: 0.75rem;
+      }
+    }
+  }
+  box-shadow: 0 0 0 0 var(--universe-bg-light);
+  transition: box-shadow 0.2s ease;
+
+  &:hover {
+    box-shadow: 0 3px 4px -1px var(--universe-bg-light);
+  }
+}
+
+.Stars {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.Star {
+  margin: 0.5rem;
+  display: inline-block;
+  flex-grow: 1;
+  flex-shrink: 1;
+  min-width: 5rem;
+  min-height: 5rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  position: relative;
+  @each $color in RED BLUE GREEN YELLOW BLACK {
+    &.#{$color} {
+      background-color: var(--star-#{$color});
+    }
+  }
+
+h4, span{
+  --text-color: white;
+  color: var(--text-color);
+}
+  h4 {
+    margin:0 0 1rem;
+  }
+
+
+  span {
+    font-size: .8rem;
+  }
+}
 @import 'mobile.scss';

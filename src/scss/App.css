@@ -1,7 +1,15 @@
 :root {
   --text-color: #111111;
   --page-width: 75vw;
-  --menu-color:#ABB2B9; }
+  --menu-color:#ABB2B9;
+  --universe-bg: #415f78;
+  --universe-bg-light: #6c9baa;
+  --universe-bg-dark: #3c5064;
+  --star-RED:#be4178;
+  --star-BLUE:#6c9baa;
+  --star-GREEN:#3caf96;
+  --star-YELLOW:#ffc772;
+  --star-BLACK:#3c5064; }
 
 #root,
 #root > div,
@@ -32,8 +40,8 @@ a {
       margin-left: 2rem; }
     .Menu ul a {
       color: var(--menu-color);
-      transition: color .3s ease; }
-      .Menu ul a:hover, .Menu ul a.active {
+      transition: color 0.3s ease; }
+      .Menu ul a.active, .Menu ul a:hover {
         --menu-color: var(--text-color); }
 
 .Logo {
@@ -42,10 +50,93 @@ a {
   .Logo img {
     width: 4rem;
     height: 4rem;
-    transition: transform .3s ease;
+    transition: transform 0.3s ease;
     transform-origin: 50% 50%; }
   .Logo:hover img {
     transform: scale(1.1); }
+
+.Universes {
+  display: flex;
+  flex-wrap: wrap; }
+
+.Universe {
+  background-color: var(--universe-bg);
+  margin: 0.5rem;
+  display: inline-block;
+  flex-grow: 1;
+  flex-shrink: 1;
+  min-width: 10rem;
+  min-height: 8rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  --text-color: white;
+  box-shadow: 0 0 0 0 var(--universe-bg-light);
+  transition: box-shadow 0.2s ease; }
+  .Universe h4 {
+    margin: 0;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--universe-bg-light); }
+  .Universe .percentage {
+    height: 1rem;
+    display: block;
+    position: relative;
+    width: 100%;
+    border-radius: 2rem;
+    background-color: var(--universe-bg-dark);
+    overflow: hidden; }
+  .Universe .value {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background-color: #ffc772; }
+  .Universe .universe-info {
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    --text-color: var(--universe-bg-light);
+    color: var(--text-color); }
+    .Universe .universe-info span {
+      display: block; }
+      .Universe .universe-info span:last-of-type {
+        margin-top: 0.75rem; }
+  .Universe:hover {
+    box-shadow: 0 3px 4px -1px var(--universe-bg-light); }
+
+.Stars {
+  display: flex;
+  flex-wrap: wrap; }
+
+.Star {
+  margin: 0.5rem;
+  display: inline-block;
+  flex-grow: 1;
+  flex-shrink: 1;
+  min-width: 5rem;
+  min-height: 5rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  position: relative; }
+  .Star.RED {
+    background-color: var(--star-RED); }
+  .Star.BLUE {
+    background-color: var(--star-BLUE); }
+  .Star.GREEN {
+    background-color: var(--star-GREEN); }
+  .Star.YELLOW {
+    background-color: var(--star-YELLOW); }
+  .Star.BLACK {
+    background-color: var(--star-BLACK); }
+  .Star h4, .Star span {
+    --text-color: white;
+    color: var(--text-color); }
+  .Star h4 {
+    margin: 0 0 1rem; }
+  .Star span {
+    font-size: .8rem; }
 
 @media only screen and (max-width: 640px) {
   .App {

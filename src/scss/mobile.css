@@ -1,0 +1,8 @@
+@media only screen and (max-width: 640px) {
+  .App {
+    --page-width:90vw; }
+  .Menu ul {
+    margin: 0; }
+    .Menu ul li {
+      display: block;
+      margin-bottom: .3rem; } }
