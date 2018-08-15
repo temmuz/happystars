@@ -7,20 +7,21 @@ import Universes from './Components/Universes';
 import Universe from './Components/Universe';
 import Stars from './Components/Stars';
 import Imprint from './Components/Imprint';
+import {getApi} from './Components/api';
 
 import {Router, Route, browserHistory} from 'react-router';
 import registerServiceWorker from './registerServiceWorker';
-const api = 'https://happy-stars.herokuapp.com/api/';
 const universes = [];
 const stars = [];
-fetch(`${api}universe`).then(function(response) {
+getApi('universe').then(function(response) {
   return response.json();
 }).then(function(myJson) {
   myJson.universes.map((universe) => {
     universes.push(universe);
   })
 })
-fetch(`${api}star`).then(function(response) {
+getApi('star').then(function(response) {
+
   return response.json();
 }).then(function(myJson) {
   myJson.stars.map((star) => {
