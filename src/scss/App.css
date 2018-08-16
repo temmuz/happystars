@@ -1,3 +1,4 @@
+@charset "UTF-8";
 :root {
   --text-color: #111111;
   --page-width: 75vw;
@@ -59,6 +60,57 @@ a {
   display: flex;
   flex-wrap: wrap; }
 
+.Universe.addUniverse:after, .Universe.addStar:after, .Star.addUniverse:after, .Star.addStar:after {
+  position: absolute;
+  display: block;
+  content: '╋';
+  font-size: 3rem;
+  top: 50%;
+  left: 50%;
+  color: var(--universe-bg-dark);
+  transform: translate(-50%, -50%); }
+
+.Universe.activated:after, .Star.activated:after {
+  display: none; }
+
+.Universe.activated form, .Star.activated form {
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity 0.3s ease; }
+
+.Universe form, .Star form {
+  opacity: 0;
+  pointer-events: none;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; }
+  .Universe form button,
+  .Universe form input, .Star form button,
+  .Star form input {
+    border: none;
+    height: 1.6rem;
+    font-size: 0.8rem;
+    padding: 0.2rem 0.5rem;
+    display: block;
+    border-radius: 2px;
+    max-width: 100%; }
+
+.deleteStar {
+  position: absolute;
+  opacity: 0;
+  transition: opacity .3s ease;
+  bottom: 1rem;
+  right: 1rem;
+  height: 1.4rem;
+  width: 1.3rem;
+  display: none;
+  pointer-events: none;
+  cursor: pointer; }
+  .deleteStar:after {
+    content: '✕';
+    font-size: 1.4rem; }
+
 .Universe {
   background-color: var(--universe-bg);
   margin: 0.5rem;
@@ -74,6 +126,7 @@ a {
   flex-direction: column;
   justify-content: space-between;
   --text-color: white;
+  cursor: pointer;
   box-shadow: 0 0 0 0 var(--universe-bg-light);
   transition: box-shadow 0.2s ease; }
   .Universe h4 {
@@ -109,6 +162,11 @@ a {
 .Stars {
   display: flex;
   flex-wrap: wrap; }
+  .Stars.ofUniverse .Star .deleteStar {
+    display: block; }
+  .Stars.ofUniverse .Star:hover .deleteStar {
+    pointer-events: auto;
+    opacity: 1; }
 
 .Star {
   margin: 0.5rem;
@@ -120,6 +178,8 @@ a {
   padding: 1rem;
   border-radius: 1rem;
   position: relative; }
+  .Star.deleted {
+    display: none; }
   .Star.RED {
     background-color: var(--star-RED); }
   .Star.BLUE {
@@ -130,13 +190,39 @@ a {
     background-color: var(--star-YELLOW); }
   .Star.BLACK {
     background-color: var(--star-BLACK); }
-  .Star h4, .Star span {
+  .Star h4,
+  .Star span {
     --text-color: white;
     color: var(--text-color); }
   .Star h4 {
     margin: 0 0 1rem; }
   .Star span {
-    font-size: .8rem; }
+    font-size: 0.8rem; }
+  .Star.addStar:after {
+    --universe-bg-dark: var(--universe-bg); }
+
+.ChooseStarColor {
+  padding: .8rem 0;
+  display: block; }
+  .ChooseStarColor .StarColor {
+    cursor: pointer;
+    float: left;
+    height: 1.2rem;
+    width: 1.2rem;
+    display: inline-block;
+    margin-right: .5rem;
+    border: 2px solid white;
+    border-radius: 2px; }
+    .ChooseStarColor .StarColor[color=RED] {
+      background-color: var(--star-RED); }
+    .ChooseStarColor .StarColor[color=BLUE] {
+      background-color: var(--star-BLUE); }
+    .ChooseStarColor .StarColor[color=GREEN] {
+      background-color: var(--star-GREEN); }
+    .ChooseStarColor .StarColor[color=YELLOW] {
+      background-color: var(--star-YELLOW); }
+    .ChooseStarColor .StarColor[color=BLACK] {
+      background-color: var(--star-BLACK); }
 
 @media only screen and (max-width: 640px) {
   .App {

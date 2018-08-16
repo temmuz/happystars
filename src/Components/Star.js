@@ -6,15 +6,22 @@ class Star extends Component {
     this.state = {};
   }
 
-render() {
-
-  return (
-<div className={`Star ${this.props.color}`}>
-  <h4>{this.props.name}</h4>
-<span>{`is from the universe '${this.props.universe}'`}</span>
-</div>
-)
-}
+  render() {
+    let display = {
+      display: `${this.props.universe
+        ? 'inline'
+        : 'none'}`
+    }
+    return (<div className={`Star ${this.props.color}`}>
+      <h4>{this.props.name}</h4>
+      <span style={display}>{
+          this.props.universe
+            ? `is from the universe '${this.props.universe}'`
+            : ''
+        }</span>
+      <span onClick={this.props.handleDelete} data-key={this.props.datakey} className="deleteStar"></span>
+    </div>)
+  }
 }
 
 export default Star;
