@@ -1,7 +1,7 @@
 # JS-Frontend-Test Homework
 
 I have prepared the challenge with 'create-react-app'.
-You can just clone/download the repository and just run`npm start` and `npm start` in the directory to see it locally.
+You can just clone/download the repository and just run`npm install` and `npm start` in the directory to see it locally.
 
 ## Explanation about the task steps:
 
