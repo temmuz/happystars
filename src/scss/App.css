@@ -60,7 +60,9 @@ a {
   display: flex;
   flex-wrap: wrap; }
 
-.Universe.addUniverse:after, .Universe.addStar:after, .Star.addUniverse:after, .Star.addStar:after {
+.Star.addStar:after, .Star.addUniverse:after,
+.Universe.addStar:after,
+.Universe.addUniverse:after {
   position: absolute;
   display: block;
   content: '╋';
@@ -70,24 +72,28 @@ a {
   color: var(--universe-bg-dark);
   transform: translate(-50%, -50%); }
 
-.Universe.activated:after, .Star.activated:after {
+.Star.activated:after,
+.Universe.activated:after {
   display: none; }
 
-.Universe.activated form, .Star.activated form {
+.Star.activated form,
+.Universe.activated form {
   opacity: 1;
   pointer-events: auto;
   transition: opacity 0.3s ease; }
 
-.Universe form, .Star form {
+.Star form,
+.Universe form {
   opacity: 0;
   pointer-events: none;
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between; }
+  .Star form button,
+  .Star form input,
   .Universe form button,
-  .Universe form input, .Star form button,
-  .Star form input {
+  .Universe form input {
     border: none;
     height: 1.6rem;
     font-size: 0.8rem;
@@ -99,7 +105,7 @@ a {
 .deleteStar {
   position: absolute;
   opacity: 0;
-  transition: opacity .3s ease;
+  transition: opacity 0.3s ease;
   bottom: 1rem;
   right: 1rem;
   height: 1.4rem;
@@ -202,7 +208,7 @@ a {
     --universe-bg-dark: var(--universe-bg); }
 
 .ChooseStarColor {
-  padding: .8rem 0;
+  padding: 0.8rem 0;
   display: block; }
   .ChooseStarColor .StarColor {
     cursor: pointer;
@@ -210,7 +216,7 @@ a {
     height: 1.2rem;
     width: 1.2rem;
     display: inline-block;
-    margin-right: .5rem;
+    margin-right: 0.5rem;
     border: 2px solid white;
     border-radius: 2px; }
     .ChooseStarColor .StarColor[color=RED] {
