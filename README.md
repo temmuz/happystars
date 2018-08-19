@@ -2,6 +2,7 @@
 
 I have prepared the challenge with 'create-react-app'.
 You can just clone/download the repository and just run`npm install` and `npm start` in the directory to see it locally.
+Or you can see the build version here: https://todguzel.github.io/happystars-gh-pages
 
 ## Explanation about the task steps:
 
