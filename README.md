@@ -4,6 +4,8 @@ I have prepared the challenge with 'create-react-app'.
 You can just clone/download the repository and just run`npm install` and `npm start` in the directory to see it locally.
 Or you can see the build version here: https://todguzel.github.io/happystars-gh-pages
 
+Note: Doesn't render anything when the Stars-API is deactive. (when the Heroku app displays 'Application Error')
+
 ## Explanation about the task steps:
 
 ### Task 0 - Writing & Thoughts
